@@ -1,0 +1,29 @@
+@import url(https://use.fontawesome.com/releases/v5.3.1/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700);
+
+
+body {
+  font-family: 'Noto Sans JP', "ヒラギノ角ゴ Pro W3", 'Hiragino Kaku Gothic Pro', "メイリオ", 'Meiryo', "ＭＳ Ｐゴシック", 'MS PGothic', Helvetica, Arial, sans-serif;
+}
+.editor-post-title__input {
+    font-size: 20px;
+    font-family: 'Noto Sans JP', "ヒラギノ角ゴ Pro W3", 'Hiragino Kaku Gothic Pro', "メイリオ", 'Meiryo', "ＭＳ Ｐゴシック", 'MS PGothic', Helvetica, Arial, sans-serif;
+}
+
+
+.wp-block, body.editor-area  { max-width: 800px;}
+p { font-size: 16px;}
+h2 { padding: 5px; background-color: #0588E4; color: #fff; font-size: 20px;}
+h3 { padding: 5px; color: #0588E4; border-bottom: 4px solid #0588E4; font-size: 18px;}
+h4 { color: #6AB7ED; border-bottom: 2px solid #eee;}
+blockquote { margin: 1rem 0; padding: 1rem 2rem; border: 1px solid #eee; box-shadow: 0 0 10px #eee inset;}
+code { padding: 0.2em 0.4em; background-color: #eee; border-radius: 3px; letter-spacing: 0; font-size: 100%;}
+pre { margin: 1rem 0; padding: 1em; background-color: #eee;}
+.btn__demo > a,
+.demo { min-width: 280px; background-color: #0588E4; color: #fff; display: inline-block; margin: 0; padding: 1rem 2rem; border-radius: 4px; text-align: center; text-decoration: none; outline: none; position: relative;}
+.btn__cv > a,
+.btn-cv{ min-width: 280px; background-color: #cd2020; color: #fff; display: inline-block; margin: 0; padding: 1rem 2rem; border-radius: 4px; text-align: center; text-decoration: none; outline: none; position: relative;}
+
+.box { border: 1px dotted #0588E4; background-color: #fff; padding: 1.6rem; margin: 1rem 0; line-height: 1.6;}
+.box > ol,
+.box > ul { margin-top: 0; margin-bottom: 0;}

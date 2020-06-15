@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+@mixin nightmode {
+    input#color-mode:checked + #wrapper & {
+        @content;
+    }
+}
+
+$breakpoint: 768px;
+
+@mixin desktop {
+    @media (min-width: $breakpoint) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: $breakpoint) and (max-width: 1024px) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media (max-width: $breakpoint - 1px) {
+        @content;
+    }
+}
+@mixin ie10 { /* IE10以上 */
+    @media all and (-ms-high-contrast: none) {
+        @content;
+    }
+}
+@mixin ie9 { /* IE9 */
+    @media screen and (min-width: 0\0) and (min-resolution: .001dpcm) {
+        @content;
+    }
+}
+
+@mixin yu-min { font-family: "游明朝", "Yu Mincho", "游明朝体", "YuMincho", "ヒラギノ明朝 Pro W3", 'Hiragino Mincho Pro', 'HiraMinProN-W3', 'MS Mincho', serif;
+    @include ie10 { font-family: "ヒラギノ明朝 Pro W3", 'Hiragino Mincho Pro', 'MS Mincho', serif;}
+    @include ie9 { font-family: "ヒラギノ明朝 Pro W3", 'Hiragino Mincho Pro', 'MS Mincho', serif;}
+}
+@mixin yu-go { font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", 'Hiragino Kaku Gothic Pro', "メイリオ", 'Meiryo', "ＭＳ Ｐゴシック", 'MS PGothic', sans-serif;
+    @include ie10 { font-family: "メイリオ", 'Meiryo', "ＭＳ Ｐゴシック", 'MS PGothic', sans-serif;}
+    @include ie9 { font-family: "メイリオ", 'Meiryo', "ＭＳ Ｐゴシック", 'MS PGothic', sans-serif;}
+}
+
+@mixin clearfix {
+    &::after{ content:"";  display:block;  height:0;  clear:both;  visibility:hidden}
+}
+
+@mixin hover {transition: opacity 0.3s;
+    @include desktop { &:hover { opacity:0.7;}}
+}
+
+@mixin centerTop {
+    position: absolute; top: 50%; transform: translateY(-50%);
+}
+@mixin centerLeft {
+    position: absolute; left: 50%; transform: translateX(-50%);
+}
+
+@mixin flex-center { display: flex; justify-content: center; align-items: center;}
+
+@mixin flex($justify:0, $align:0, $wrap:0, $wrap_align:0, $column:0) {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    // justify-content水平方向揃え（第一引数）
+    @if $justify == start { // 左揃え
+        -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+    } @else if $justify == end { // 右揃え
+        -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+    } @else if $justify == center { // 中央揃え
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    } @else if $justify == between { // 両端配置
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    } @else if $justify == around { // 均等配置
+        -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+    }
+
+    // align-items垂直方向揃え（第二引数）
+    @if $align == start { // 上揃え
+        -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+    } @else if $align == end { // 下揃え
+        -webkit-align-items: flex-end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+    } @else if $align == center { // 中央揃え
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    } @else if $align == baseline { // ベースライン
+        -webkit-align-items: baseline;
+        -ms-flex-align: baseline;
+        align-items: baseline;
+    } @else if $align == stretch { // 高さ揃え
+        -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+    }
+
+    // flex-wrap子要素の折り返し設定（第三引数）
+    @if $wrap == nowrap { // 折り返ししない
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    } @else if $wrap == wrap { // 上から下
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    } @else if $wrap == reverse { // 下から上
+        -webkit-flex-wrap: wrap-reverse;
+        -ms-flex-wrap: wrap-reverse;
+        flex-wrap: wrap-reverse;
+    }
+
+    // align-content複数行設定（第四引数）
+    @if $wrap_align == start { // 上揃え
+        -webkit-align-content: flex-start;
+        -ms-flex-line-pack: start;
+        align-content: flex-start;
+    } @else if $wrap_align == end { // 下揃え
+        -webkit-align-content: flex-end;
+        -ms-flex-line-pack: end;
+        align-content: flex-end;
+    } @else if $wrap_align == center { // 中央揃え
+        -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+        align-content: center;
+    } @else if $wrap_align == between { // 両端配置
+        -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+        align-content: space-between;
+    } @else if $wrap_align == around { // 均等配置
+        -webkit-align-content: space-around;
+        -ms-flex-line-pack: distribute;
+        align-content: space-around;
+    } @else if $wrap_align == stretch { // 高さ揃え
+        -webkit-align-content: stretch;
+        -ms-flex-line-pack: stretch;
+        align-content: stretch;
+    }
+
+    // 縦並び（第五引数）
+    @if $column == 1 {
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+}

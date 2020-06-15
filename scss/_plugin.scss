@@ -1,0 +1,33 @@
+/* Akismet */
+.akismet_comment_form_privacy_notice { display: none;}
+
+
+/* table of contet */
+.toc_widget_list { padding: 0 15px 15px;
+    li { margin-top: 1em; font-size: 13px; position: relative;
+        &:first-child{margin-top: 0;}
+        ul { margin-top: 1em;}
+    }
+}
+
+.toc_number { }
+#toc_container {
+    @include nightmode { background: none;}
+}
+
+/* popular post */
+.sidebar .wpp-list {
+    li { margin: 0 0 10px; background-color: #fff; position: relative; display: flex; align-items:center;
+        figure { flex: 0 0 33%;}
+        .wpp-post-title { padding: 10px; font-size: 13px;}
+    }
+    @include desktop {
+        li { display: list-item;
+            .wpp-post-title { opacity: 0; padding: 0 20px; height: 100%; width: 100%; top: 0; left: 0; position: absolute; background-color: rgba(255,255,255,0.9); color: #333;
+                display: flex; align-items:center; justify-content: center; font-size: 18px; font-weight: bold; text-decoration: none;}
+            &:hover .wpp-post-title { transition: 0.3s; opacity: 1; }
+        }
+    }
+}
+/* push7 */
+#p7frame {position: absolute;bottom: 0;}
